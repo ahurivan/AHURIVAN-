@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>معماری سیستم‌های فناناپذیر | AHURIVAN</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>𖤍</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700;900&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-symbol">𖤍</span>
+    <span>AHURIVAN</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">خانه</a></li>
+    <li><a href="resume.html">رزومه</a></li>
+    <li><a href="blog.html" class="active">وبلاگ</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-btn"><span class="theme-icon">☾</span></button>
+</nav>
+
+<header class="page-header">
+  <p class="page-tag">⟁ SPELL III ⟁</p>
+  <h1 class="page-title">معماری سیستم‌های فناناپذیر</h1>
+  <div class="article-meta">
+    <span>📅 ۱۴۰۳/۰۷/۲۰</span>
+    <span>⏱ ۱۲ دقیقه مطالعه</span>
+    <span>✍ AHURIVAN</span>
+  </div>
+</header>
+
+<main class="container">
+  <a href="blog.html" class="back-link">→ بازگشت به آرشیو</a>
+
+  <article class="article-body">
+    <p>
+      هر سیستمی روزی می‌شکند. سرور می‌سوزد، دیسک خراب می‌شود، کد باگ پیدا می‌کند،
+      کاربران غیرمنتظره رفتار می‌کنند. سوال واقعی این نیست که "آیا سیستم می‌شکند؟"
+      بلکه این است: <strong>"وقتی شکست، چه اتفاقی می‌افتد؟"</strong>
+    </p>
+
+    <div class="article-highlight">
+      <p>
+        سیستم فناناپذیر، سیستمی نیست که هرگز نمی‌شکند. سیستمی است که شکستش، <em>پایانش</em> نیست.
+      </p>
+    </div>
+
+    <h2>سه اصل بنیادین</h2>
+
+    <h3>۱. طراحی برای شکست</h3>
+    <p>
+      به جای اینکه فرض کنیم همه چیز درست کار می‌کند، فرض کنیم همه چیز <em>خراب می‌شود</em>.
+      هر component باید مستقل باشد، هر سرویس باید fail-safe داشته باشد، و هر درخواست
+      باید timeout داشته باشد.
+    </p>
+
+    <p>
+      مثلاً در Netflix، اگر یه سرویس پیشنهاد فیلم از کار بیفته، کاربر هنوز می‌تونه
+      فیلم ببینه — فقط لیست پیشنهادی نمایش داده نمی‌شه. این یعنی <strong>graceful degradation</strong>.
+    </p>
+
+    <h3>۲. مشاهده‌پذیری کامل</h3>
+    <p>
+      اگه ندونی سیستم داره چه غلطی می‌کنه، نمی‌تونی نجاتش بدی. سه ستون مشاهده‌پذیری:
+    </p>
+
+    <ul>
+      <li><strong>Logs (لاگ‌ها):</strong> چه اتفاقی افتاد؟</li>
+      <li><strong>Metrics (متریک‌ها):</strong> چقدر خوب کار می‌کنه؟</li>
+      <li><strong>Traces (ردیابی‌ها):</strong> یک درخواست از کجا تا کجا رفت؟</li>
+    </ul>
+
+    <h3>۳. خودترمیمی</h3>
+    <p>
+      سیستم باید خودش را تشخیص بده، خودش را راه‌اندازی مجدد کنه، خودش رو مقیاس بده.
+      Kubernetes این کار رو می‌کنه: اگه یه pod بمیره، یه pod جدید می‌سازه.
+    </p>
+
+    <h2>الگوهای معماری</h2>
+
+    <h3>میکروسرویس‌ها</h3>
+    <p>
+      به جای یه اپلیکیشن غول‌پیکر (Monolith)، سیستم رو به سرویس‌های کوچک و مستقل
+      تقسیم کن. هر سرویس یه مسئولیت داره، جدا deploy می‌شه، جدا مقیاس می‌گیره.
+    </p>
+
+    <p>
+      <strong>مزیت:</strong> اگه یه سرویس بمیره، بقیه زنده می‌مونن.<br>
+      <strong>عیب:</strong> پیچیدگی بیشتر، نیاز به DevOps قوی.
+    </p>
+
+    <h3>Event-Driven Architecture</h3>
+    <p>
+      به جای اینکه سرویس‌ها مستقیم با هم حرف بزنن، از طریق event با هم ارتباط داشته باشن.
+      مثلاً وقتی کاربر ثبت‌نام می‌کنه، یه event می‌فرسته و بقیه سرویس‌ها خودشون تصمیم می‌گیرن.
+    </p>
+
+    <pre><code>event: user.registered
+  → send_email_service listens
+  → welcome_bonus_service listens
+  → analytics_service listens
+  → notification_service listens</code></pre>
+
+    <p>
+      این یعنی شما می‌تونید سرویس جدید بدون تغییر دادن بقیه اضافه کنید.
+    </p>
+
+    <h3>Idempotency</h3>
+    <p>
+      هر عملیاتی باید طوری باشه که اگه دوبار انجام بشه، نتیجه فرقی نکنه. مثلاً اگه
+      کاربر دوبار دکمه "پرداخت" رو زد، فقط یه بار پول کم بشه.
+    </p>
+
+    <h2>درس‌هایی از سیستم‌های بزرگ</h2>
+
+    <p>
+      <strong>Amazon:</strong> از Monolith به میکروسرویس مهاجرت کرد و حالا روزانه میلیاردها
+      درخواست رو مدیریت می‌کنه. رمز موفقیتشون؟ <em>Automation</em> و <em>Culture of Ownership</em>.
+    </p>
+
+    <p>
+      <strong>Google:</strong> با Borg و بعد Kubernetes، استاندارد جدیدی برای orchestration ساخت.
+      فلسفه‌شون: "هر چیزی که می‌تونه خودکار بشه، باید خودکار بشه."
+    </p>
+
+    <p>
+      <strong>Netflix:</strong> با Chaos Engineering، عمداً سیستم رو خراب می‌کنه تا مطمئن بشه
+      در برابر خرابی مقاومه. معروف‌ترین ابزارشون: Chaos Monkey.
+    </p>
+
+    <h2>در AHURIVAN چطور کار می‌کنیم؟</h2>
+
+    <p>ما هر پروژه رو با این اصول طراحی می‌کنیم:</p>
+
+    <ul>
+      <li>هر سرویس <strong>مستقل deploy</strong> می‌شه</li>
+      <li>هر سرویس <strong>Monitoring و Alerting</strong> داره</li>
+      <li>هر عملیات <strong>Idempotent</strong> است</li>
+      <li>هر سیستم <strong>Backup و Disaster Recovery</strong> داره</li>
+      <li>هر کد <strong>Test شده</strong> است (حداقل ۸۰٪ coverage)</li>
+      <li>هر تغییر <strong>CI/CD pipeline</strong> داره</li>
+    </ul>
+
+    <blockquote>
+      سیستم فناناپذیر، نتیجه‌ی طراحی دقیق، نه خوش‌شانسی.
+    </blockquote>
+
+    <h2>پایان</h2>
+
+    <p>
+      معماری خوب، هنر تصمیم‌گیری در شرایط عدم قطعیت است. شما نمی‌دونید فردا چه اتفاقی
+      می‌افته، اما می‌تونید سیستم رو طوری بسازید که در برابر هر چیزی مقاوم باشه.
+    </p>
+
+    <p>
+      و این، تفاوت بین یک برنامه‌نویس معمولی و یک <strong>معمار سیستم</strong> است.
+    </p>
+
+    <div class="article-highlight">
+      <p><strong>𖤍 AHURIVAN — ما برای فناناپذیری می‌سازیم.</strong></p>
+    </div>
+  </article>
+
+  <div class="resume-actions">
+    <a href="article-2.html" class="btn btn-outline">→ مقاله قبلی</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-symbol">𖤍</div>
+  <p class="footer-copy">© ۱۴۰۳ AHURIVAN — God of Tech</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('.theme-icon');
+if (localStorage.getItem('ahurivan-theme') === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeIcon.textContent = '☀';
+}
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    themeIcon.textContent = '☾';
+    localStorage.setItem('ahurivan-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.textContent = '☀';
+    localStorage.setItem('ahurivan-theme', 'dark');
+  }
+});
+</script>
+</body>
+</html>

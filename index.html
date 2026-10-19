@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHURIVAN | God of Tech</title>
+<meta name="description" content="AHURIVAN - فرمانروایان دنیای تکنولوژی، برنامه‌نویسی و سخت‌افزار">
+<meta name="keywords" content="AHURIVAN, برنامه نویسی, اسمبل کامپیوتر, طراحی سایت, هوش مصنوعی, امنیت سایبری">
+<meta name="author" content="AHURIVAN">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wallpapersmn.github.io/AHURIVAN/">
+<meta property="og:title" content="AHURIVAN | God of Tech">
+<meta property="og:description" content="ما یه گروهیم که توی تاریکی کد می‌نویسن و با سخت‌افزار ور می‌رن. از اسمبل تا وب‌سایت و هوش مصنوعی.">
+<meta property="og:image" content="https://wallpapersmn.github.io/AHURIVAN/preview-image.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AHURIVAN | God of Tech">
+<meta name="twitter:description" content="فرمانروایان دنیای تکنولوژی و کد.">
+<meta name="twitter:image" content="https://wallpapersmn.github.io/AHURIVAN/preview-image.jpg">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AHURIVAN",
+  "url": "https://wallpapersmn.github.io/AHURIVAN/",
+  "logo": "https://wallpapersmn.github.io/AHURIVAN/logo.png",
+  "description": "گروه تخصصی برنامه‌نویسی، سخت‌افزار و هوش مصنوعی.",
+  "email": "ahurivan@gmail.com",
+  "telephone": "+989939209739",
+  "sameAs": [
+    "https://github.com/ahurivan",
+    "https://t.me/ahurivan",
+    "https://instagram.com/ahurivan"
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>𖤍</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700;900&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<body>
+
+<!-- پس‌زمینه متحرک -->
+<div class="animated-bg">
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<canvas id="particles"></canvas>
+
+<div class="live-status">
+  <div class="status-item"><span class="blink"></span> SYS.ONLINE</div>
+  <div class="status-item">TIME: <span id="sysTime">00:00:00</span></div>
+  <div class="status-item">USERS: <span id="sysUsers">42</span></div>
+</div>
+
+<nav class="navbar">
+  <a href="#home" class="logo">
+    <svg class="logo-svg" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="6" y="6" width="48" height="48" rx="8"/>
+      <path d="M18 22 L12 30 L18 38" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M42 22 L48 30 L42 38" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M34 18 L26 42" stroke-linecap="round"/>
+    </svg>
+    <span>AHURIVAN</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" data-nav>خانه</a></li>
+    <li><a href="#about" data-nav>درباره</a></li>
+    <li><a href="#skills" data-nav>مهارت‌ها</a></li>
+    <li><a href="#timeline" data-nav>مسیر</a></li>
+    <li><a href="#portfolio" data-nav>نمونه کارها</a></li>
+    <li><a href="#terminal" data-nav>ترمینال</a></li>
+    <li><a href="#blog" data-nav>وبلاگ</a></li>
+    <li><a href="resume.html">رزومه</a></li>
+    <li><a href="#booking" data-nav>رزرو</a></li>
+    <li><a href="#contact" data-nav>تماس</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="search-btn" class="icon-btn" title="جستجو (Ctrl+K)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button id="theme-toggle" class="theme-btn"><span class="theme-icon">☾</span></button>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div id="search-modal" class="search-modal">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="جستجو در مقالات..." autocomplete="off">
+    <button id="search-close" class="search-close">✕</button>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+<section id="home" class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-bg-symbol">{ }</div>
+  <div class="hero-content">
+    <div class="hero-code-badge"><span class="dot"></span><span>&lt;/&gt; SYS.ONLINE</span></div>
+    <p class="hero-tag">⟁ GOD OF TECH ⟁</p>
+    <h1 class="hero-title">AHURIVAN</h1>
+    <p class="hero-subtitle"فرمانروایی در دنیای کد</p>
+    <p class="hero-desc">ما یه گروهیم که توی تاریکی کد می‌نویسن و با سخت‌افزار ور می‌رن. از اسمبل کردن کامپیوتر تا ساختن وب‌سایت و هوش مصنوعی، همه کار می‌کنیم تا آینده رو خودمون بسازیم.</p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn btn-primary">ببین چی ساختیم ←</a>
+      <a href="#contact" class="btn btn-outline">با ما حرف بزن</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+    <span class="section-number">01</span>
+    <h2>درباره <span class="accent">قلمرو ما</span></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="lead"><span class="accent">AHURIVAN</span> فقط یه اسم نیست؛ یه طرز فکره.</p>
+      <p>ما یه سری بچه‌های عاشق تکنولوژی هستیم که از سرو کله زدن با کد و سخت‌افزار لذت می‌بریم. چه بخوای یه سیستم سنگین برای گیمینگ ببندی، چه بخوای یه وب‌اپلیکیشن حرفه‌ای راه بندازی، ما پایه‌ایم.</p>
+      <p>از تعمیرات و عیب‌یابی سخت‌افزاری بگیر تا پایتون، هوش مصنوعی و امنیت. ما تو هر لایه‌ای که فکرشو کنی دستی تو کار داریم.</p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num" data-count="127">0</span><span class="stat-label">پروژه</span></div>
+        <div class="stat"><span class="stat-num" data-count="42">0</span><span class="stat-label">هم‌قبیله‌ای</span></div>
+        <div class="stat"><span class="stat-num" data-count="9">0</span><span class="stat-label">سال تجربه</span></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <svg class="sigil-svg" viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.2">
+        <circle class="ring-1" cx="150" cy="150" r="130" stroke-dasharray="4 10" opacity="0.5"/>
+        <circle class="ring-2" cx="150" cy="150" r="95" opacity="0.7"/>
+        <circle cx="150" cy="150" r="65" stroke-dasharray="3 8" opacity="0.9"/>
+        <polygon points="150,35 195,80 265,150 195,220 150,265 105,220 35,150 105,80" opacity="0.6"/>
+        <polygon points="150,70 205,110 230,150 205,190 150,230 95,190 70,150 95,110" opacity="0.4"/>
+        <text x="150" y="170" text-anchor="middle" font-size="48" fill="currentColor" stroke="none" font-family="Courier New,monospace" font-weight="900">&lt;/&gt;</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section skills">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+    <span class="section-number">02</span>
+    <h2>کارهایی که <span class="accent">بلدیم</span></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <h3>توسعه وب</h3><p>با React، Next.js و Node.js هرچی بخوای می‌سازیم</p>
+      <div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 2 8 4 8 6v3h8V6c0-2 0-4-4-4z"/><path d="M16 22c4 0 4-2 4-4v-3H12v3c0 2 0 4 4 4z"/></svg></div>
+      <h3>پایتون</h3><p>اتوماسیون، API و اسکریپت‌های حال‌گیری می‌نویسیم</p>
+      <div class="skill-bar"><div class="skill-progress" data-progress="93"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div>
+      <h3>ابزارهای Adobe</h3><p>با Photoshop و Premiere گرافیک و ویدیو می‌سازیم</p>
+      <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div>
+      <h3>هوش مصنوعی</h3><p>با ML و LLM سیستم‌های باحال و هوشمند می‌سازیم</p>
+      <div class="skill-bar"><div class="skill-progress" data-progress="88"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>سخت‌افزار و اسمبل</h3><p>سیستم‌های گیمینگ و کاری رو بهترین شکل اسمبل و عیب‌یابی می‌کنیم</p>
+      <div class="skill-bar"><div class="skill-progress" data-progress="96"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>امنیت سایبری</h3><p>سیستم‌ها رو تست نفوذ می‌کنیم و امنشون می‌کنیم</p>
+      <div class="skill-bar"><div class="skill-progress" data-progress="92"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Timeline با آیکون‌های SVG ═══ -->
+<section id="timeline" class="section timeline">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <span class="section-number">03</span>
+    <h2>مسیر <span class="accent">قلمرو</span></h2>
+  </div>
+  
+  <div class="modern-timeline">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-node">
+      <div class="node-marker">
+        <div class="marker-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+      </div>
+      <div class="node-content">
+        <div class="node-year">1394</div>
+        <h3>آغاز سفر</h3>
+        <p>AHURIVAN با سه برنامه‌نویس و یک رویا متولد شد.</p>
+      </div>
+    </div>
+
+    <div class="timeline-node">
+      <div class="node-marker">
+        <div class="marker-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </div>
+      </div>
+      <div class="node-content">
+        <div class="node-year">1396</div>
+        <h3>اولین پروژه بزرگ</h3>
+        <p>همکاری با یک شرکت بین‌المللی و ورود به بازار جهانی.</p>
+      </div>
+    </div>
+
+    <div class="timeline-node">
+      <div class="node-marker">
+        <div class="marker-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M14 20c0-2.5 2-4 4-4 1.5 0 3 .5 3 1.5"/></svg>
+        </div>
+      </div>
+      <div class="node-content">
+        <div class="node-year">1399</div>
+        <h3>توسعه تیم</h3>
+        <p>گسترش تیم به ۱۵ متخصص در حوزه‌های مختلف.</p>
+      </div>
+    </div>
+
+    <div class="timeline-node">
+      <div class="node-marker">
+        <div class="marker-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+      </div>
+      <div class="node-content">
+        <div class="node-year">1401</div>
+        <h3>جایزه ملی نوآوری</h3>
+        <p>برنده بهترین پروژه فناوری در جشنواره ملی.</p>
+      </div>
+    </div>
+
+    <div class="timeline-node">
+      <div class="node-marker">
+        <div class="marker-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+      </div>
+      <div class="node-content">
+        <div class="node-year">1403</div>
+        <h3>قلمرو امروز</h3>
+        <p>بیش از ۱۲۷ پروژه موفق و ۴۲ هم‌قبیله‌ای در سراسر جهان.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="section portfolio">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+    <span class="section-number">04</span>
+    <h2>چیزهایی که <span class="accent">ساختیم</span></h2>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item" onclick="openProjectModal('nova')">
+      <span class="portfolio-num">// 001</span><h3>پلتفرم ابری Nova</h3><p>یه زیرساخت ابری که استارتاپ‌ها روش کار می‌کنن</p><span class="portfolio-tag">CLOUD</span>
+    </div>
+    <div class="portfolio-item" onclick="openProjectModal('oracle')">
+      <span class="portfolio-num">// 002</span><h3>موتور ORACLE</h3><p>سیستمی که رفتار کاربرا رو پیش‌بینی می‌کنه</p><span class="portfolio-tag">AI / ML</span>
+    </div>
+    <div class="portfolio-item" onclick="openProjectModal('umbra')">
+      <span class="portfolio-num">// 003</span><h3>شبکه امن Umbra</h3><p>یه شبکه رمزنگاری‌شده برای سازمان‌های حساس</p><span class="portfolio-tag">SECURITY</span>
+    </div>
+    <div class="portfolio-item" onclick="openProjectModal('vault')">
+      <span class="portfolio-num">// 004</span><h3>اپ مالی Vault</h3><p>یه کیف پول غیرمتمرکز برای معامله ارز دیجیتال</p><span class="portfolio-tag">WEB3</span>
+    </div>
+  </div>
+  <div class="github-section" style="margin-top: 50px;">
+    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 20px;">آخرین فعالیت‌های <span class="accent">گیت‌هاب</span></h3>
+    <div id="github-repos" class="github-repos"><p style="color: var(--text-muted); font-family: monospace;">Loading repos...</p></div>
+  </div>
+</section>
+
+<section id="terminal" class="section">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+    <span class="section-number">05</span>
+    <h2>ترمینال <span class="accent">قلمرو</span></h2>
+  </div>
+  <div class="terminal-wrapper">
+    <div class="terminal-box">
+      <div class="terminal-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="title">root@ahurivan:~</span></div>
+      <div class="terminal-body" id="terminalBody">
+        <p>Welcome to AHURIVAN OS v1.0.0</p><p>Type <span style="color: #fff;">'help'</span> to see available commands.</p><br>
+      </div>
+      <div class="terminal-input-line"><span class="prompt">$</span><input type="text" id="terminalInput" autocomplete="off" placeholder="Type a command..."></div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="section blog">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+    <span class="section-number">06</span>
+    <h2>طلسم‌های <span class="accent">نوشتاری</span></h2>
+  </div>
+  <div class="blog-grid" id="blogGrid">
+    <article class="blog-card">
+      <span class="blog-date">// 1403/08/15</span><h3>چگونه با کد، واقعیت را تغییر دهیم</h3>
+      <p>نگاهی فلسفی به قدرت برنامه‌نویسی در دنیای مدرن و اینکه چطور یک خط کد می‌تواند سرنوشت میلیون‌ها انسان را تغییر دهد...</p>
+      <a href="article-1.html" class="read-more">مطالعه کامل ←</a>
+    </article>
+    <article class="blog-card">
+      <span class="blog-date">// 1403/08/02</span><h3>هوش مصنوعی و مرزهای اخلاق</h3>
+      <p>وقتی ماشین‌ها تصمیم می‌گیرند، چه کسی مسئول است؟ بررسی عمیق چالش‌های اخلاقی عصر هوش مصنوعی...</p>
+      <a href="article-2.html" class="read-more">مطالعه کامل ←</a>
+    </article>
+    <article class="blog-card">
+      <span class="blog-date">// 1403/07/20</span><h3>معماری سیستم‌های فناناپذیر</h3>
+      <p>چگونه سیستم‌هایی بسازیم که هرگز نمی‌میرند؟ از معماری میکروسرویس تا طراحی برای شکست...</p>
+      <a href="article-3.html" class="read-more">مطالعه کامل ←</a>
+    </article>
+  </div>
+  <div class="blog-all" style="text-align: center; margin-top: 40px;"><a href="blog.html" class="btn btn-outline">مشاهده همه مقالات</a></div>
+</section>
+
+<section id="booking" class="section booking">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+    <span class="section-number">07</span>
+    <h2>رزرو <span class="accent">جلسه</span></h2>
+  </div>
+  <div class="booking-grid">
+    <div class="booking-info">
+      <h3>بیا با هم حرف بزنیم</h3>
+      <p>چه یه ایده جدید داشته باشی، چه بخوای یه پروژه رو شروع کنی، یه جلسه مشاوره رایگان رزرو کن تا با هم بررسی کنیم.</p>
+      <ul class="booking-features">
+        <li><span class="accent">✓</span> مشاوره ۳۰ دقیقه‌ای رایگان</li>
+        <li><span class="accent">✓</span> بررسی فنی ایده شما</li>
+        <li><span class="accent">✓</span> تخمین زمان و هزینه پروژه</li>
+      </ul>
+      <div class="calendly-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:40px;height:40px;color:var(--accent);margin-bottom:10px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <p>برای رزرو جلسه، روی دکمه زیر کلیک کن. (فعلاً به صورت دمو)</p>
+<a href="#" class="btn btn-primary" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/overc3am/30min'});return false;">رزرو از طریق Calendly</a>      </div>
+    </div>
+    <div class="booking-form-wrapper">
+      <h3>یا فرم زیر را پر کن</h3>
+      <form id="bookingForm" class="booking-form">
+        <div class="form-group"><input type="text" placeholder="نام و نام خانوادگی" required></div>
+        <div class="form-group"><input type="email" placeholder="ایمیل" required></div>
+        <div class="form-group"><input type="tel" placeholder="شماره تماس" required></div>
+        <div class="form-group"><textarea rows="4" placeholder="درباره پروژه‌ات بگو..." required></textarea></div>
+        <div class="form-group date-time-row">
+          <input type="date" required>
+          <input type="time" required>
+        </div>
+        <div style="display:none;">
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">ثبت درخواست رزرو</button>
+        <p class="form-status" id="bookingStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="section testimonials">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+    <span class="section-number">08</span>
+    <h2>هم‌قبیله‌ای‌ها <span class="accent">چی می‌گن؟</span></h2>
+  </div>
+  <div class="testimonials-slider">
+    <div class="testimonial-track" id="testimonialTrack">
+      <div class="testimonial-card active">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">جو این گروه واقعاً دیوانه‌کننده‌ست! از اون‌جایی که صبح تا شب درگیر کد و سخت‌افزاریم، ولی انگار داری با رفیقات وقت می‌گذرونی. اینجا هیچ‌کس تنها نیست.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">RN</div><div><h4>رضا نوری</h4><span>هم‌قبیله‌ای</span></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">من همیشه دنبال یه جایی بودم که بتونم چیزهای عجیب و غریب رو تست کنم. AHURIVAN دقیقاً همون جاست. آزادی داری تا هر ایده‌ای رو پیاده کنی، حتی اگه دیوانه‌به‌نظر برسه.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">SM</div><div><h4>سارا محمدی</h4><span>هم‌قبیله‌ای</span></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">اینجا یاد گرفتم که کد فقط تایپ کردن نیست، یه جور زندگیه. ما با هم می‌سازیم، با هم می‌شکنیم و با هم دوباره از اول شروع می‌کنیم. این حس رفاقت رو جای دیگه پیدا نمی‌کنی.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">AK</div><div><h4>علی کریمی</h4><span>هم‌قبیله‌ای</span></div></div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="prevTestimonial">→</button>
+      <div class="slider-dots" id="sliderDots"></div>
+      <button class="slider-btn" id="nextTestimonial">←</button>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="section achievements">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+    <span class="section-number">09</span>
+    <h2>افتخارات <span class="accent">ما</span></h2>
+  </div>
+  <div class="achievements-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+    <div class="achievement-card" style="padding: 32px 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); text-align: center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px; height:48px; color: var(--accent); margin: 0 auto 16px;"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <h3 style="font-size: 16px; margin-bottom: 8px;">جایزه ملی نوآوری ۱۴۰۲</h3><p style="font-size: 13px; color: var(--text-muted);">بهترین پروژه فناوری سال</p>
+    </div>
+    <div class="achievement-card" style="padding: 32px 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); text-align: center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px; height:48px; color: var(--accent); margin: 0 auto 16px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <h3 style="font-size: 16px; margin-bottom: 8px;">AWS Certified Architect</h3><p style="font-size: 13px; color: var(--text-muted);">گواهینامه حرفه‌ای آمازون</p>
+    </div>
+    <div class="achievement-card" style="padding: 32px 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); text-align: center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px; height:48px; color: var(--accent); margin: 0 auto 16px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h3 style="font-size: 16px; margin-bottom: 8px;">Adobe Certified Pro</h3><p style="font-size: 13px; color: var(--text-muted);">استاد ابزارهای خلاقیت</p>
+    </div>
+    <div class="achievement-card" style="padding: 32px 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); text-align: center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px; height:48px; color: var(--accent); margin: 0 auto 16px;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+      <h3 style="font-size: 16px; margin-bottom: 8px;">Google Cloud Developer</h3><p style="font-size: 13px; color: var(--text-muted);">متخصص زیرساخت ابری</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section faq">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+    <span class="section-number">10</span>
+    <h2>سوالات <span class="accent">فنی</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question"><span>موقع اسمبل کردن سیستم، چطور خمیر سیلیکون رو درست بزنیم؟</span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>بهترین روش، زدن یه مقدار به اندازه یه دونه نخود (یا عدس) در وسط CPU هست. نیازی به پخش کردنش با دست نیست؛ فشار خنک‌کننده خودش پخشش می‌کنه. فقط حواست باشه زیاد نزنی که overflow نکنه و به سوکت نرسه.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span>هنگام نصب ویندوز، هارد SSD من توسط ستاپ شناسایی نمیشه. مشکل چیه؟</span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>معمولاً به خاطر تنظیمات BIOS و حالت درایو (SATA Mode) هست. اگه از هاردهای NVMe نسل جدید استفاده می‌کنی، گاهی باید توی BIOS حالت Intel RST یا RAID رو به AHCI تغییر بدی. همچنین درایورهای VMD اینتل رو قبل از نصب توی فلش مموری بریز.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span>کامپیوترم موقع بازی سنگین ری‌استارت میشه. مشکل از کجاست؟</span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>خیلی از مواقع مشکل از پاور (PSU) هست که توان کافی برای کارت گرافیک رو نداره یا خراب شده. گاهی هم به خاطر داغ شدن بیش از حد CPU یا گرافیکه. بهتره دما رو با نرم‌افزاری مثل HWMonitor چک کنی و کابل‌های برق 8-pin گرافیک رو محکم جا بزنی.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span>سیستم جدیدم بوت نمیشه و هیچ تصویری روی مانیتور نمیاد. باید چیکار کنم؟</span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>اولین قدم اینه که مطمئن بشی RAM ها درست توی اسلات (معمولاً اسلات 2 و 4) جا افتادن. چراغ‌های مادربرد (LED های Debug) رو چک کن؛ اگه چراغ VGA یا DRAM روشن مونده، مشکل از همون قطعه‌ست. کابل برق CPU (بالای سوکت) رو هم فراموش نکن.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span>برای تمیز کردن و سرویس دوره‌ای کیس کامپیوتر از چه چیزی استفاده کنیم؟</span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>اصلاً از سشوار یا جاروبرقی معمولی استفاده نکن (باعث تولید الکتریسیته ساکن میشن). بهترین راه استفاده از اسپری هوای فشرده (Air Duster) برای فن‌ها و هیت‌سینک، و یک براش نرم و الکل ایزوپروپیل برای چیپ‌ها و خمیر سیلیکون قدیمی هست.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section newsletter">
+  <div class="newsletter-box">
+    <h2>عضویت در <span class="accent">خبرنامه</span></h2>
+    <p>جدیدترین مقالات و پروژه‌های ما رو در ایمیلت دریافت کن.</p>
+    <form id="newsletterForm" class="newsletter-form">
+      <input type="email" id="newsletterEmail" placeholder="ایمیلت رو وارد کن" required>
+      <button type="submit" class="btn btn-primary">عضویت</button>
+    </form>
+    <p class="newsletter-status" id="newsletterStatus"></p>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+    <span class="section-number">11</span>
+    <h2>با ما <span class="accent">حرف بزن</span></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>راه‌های ارتباطی</h3><p>هر سوالی داری یا می‌خوای یه کاری رو با هم شروع کنیم؟ پیام بده.</p>
+      <ul class="contact-list">
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:ahurivan@gmail.com">ahurivan@gmail.com</a></li>
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><a href="tel:+989939209739" dir="ltr">+98 993 920 9739</a></li>
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>تهران، قلمرو تاریک</span></li>
+      </ul>
+      <div class="socials">
+        <a href="https://github.com/ahurivan" target="_blank" class="social" title="GitHub">GH</a>
+        <a href="https://t.me/ahurivan" target="_blank" class="social" title="Telegram">TG</a>
+        <a href="https://instagram.com/ahurivan" target="_blank" class="social" title="Instagram">IG</a>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqpeoqzl" method="POST">
+      <div class="form-group"><input type="text" name="name" placeholder="اسمت چیه؟" required></div>
+      <div class="form-group"><input type="email" name="email" placeholder="ایمیلت" required></div>
+      <div class="form-group"><input type="text" name="subject" placeholder="موضوع"></div>
+      <div class="form-group"><textarea name="message" rows="5" placeholder="پیامت رو بنویس..." required></textarea></div>
+      <div style="display:none;">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">بفرست برامون</button>
+      <p class="form-status"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <svg class="footer-svg" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="48" height="48" rx="8"/><path d="M18 22 L12 30 L18 38" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 22 L48 30 L42 38" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 18 L26 42" stroke-linecap="round"/></svg>
+  <p class="footer-quote">"ما توی سایه‌ها می‌سازیم، توی نور حالشو می‌بریم."</p>
+  <p class="footer-copy">© 1403 AHURIVAN — God of Tech</p>
+  <button id="hell-mode-btn" style="margin-top: 20px; font-family: monospace; font-size: 10px; color: var(--text-muted); opacity: 0.3; transition: opacity 0.3s;">[ Hell Mode ]</button>
+</footer>
+
+<button class="back-to-top">↑</button>
+
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProjectModal()">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="chatbot-container">
+  <button id="chatbotToggle" class="chatbot-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg></button>
+  <div id="chatbotWindow" class="chatbot-window">
+    <div class="chatbot-header"><div><h4>𖤍 AHURIVAN Bot</h4><span>دستیار قلمرو</span></div><button id="chatbotClose" class="chatbot-close">✕</button></div>
+    <div id="chatbotMessages" class="chatbot-messages"><div class="chat-msg bot">سلام! من دستیار AHURIVAN هستم. چطور می‌تونم کمکت کنم؟ 🖤</div></div>
+    <div id="chatbotQuickReplies" class="chatbot-quick-replies"><button data-msg="خدمات">خدمات</button><button data-msg="قیمت">قیمت</button><button data-msg="تیم">تیم</button><button data-msg="تماس">تماس</button></div>
+    <form id="chatbotForm" class="chatbot-input-wrap"><input type="text" id="chatbotInput" placeholder="پیامت..." autocomplete="off"><button type="submit">➤</button></form>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<div id="easterEgg" class="easter-egg">
+  <div class="easter-egg-content">
+    <h2>𖤍 به قلمرو خوش آمدی 𖤍</h2><p>تو یکی از ما هستی. این طلسم رو دریافت کن:</p>
+    <div class="easter-egg-code">AHURIVAN-GOD-OF-TECH-2024</div><p class="easter-egg-small">این کد رو توی تماس بفرست تا ۱۰٪ تخفیف بگیری.</p>
+    <button id="easterEggClose" class="btn btn-primary">بستن</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

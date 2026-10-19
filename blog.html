@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طلسم‌های نوشتاری | AHURIVAN</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>𖤍</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700;900&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-symbol">𖤍</span>
+    <span>AHURIVAN</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">خانه</a></li>
+    <li><a href="resume.html">رزومه</a></li>
+    <li><a href="blog.html" class="active">وبلاگ</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-btn"><span class="theme-icon">☾</span></button>
+</nav>
+
+<header class="page-header">
+  <p class="page-tag">⟁ ARCHIVE OF SPELLS ⟁</p>
+  <h1 class="page-title">طلسم‌های نوشتاری</h1>
+  <p class="page-subtitle">مجموعه‌ای از مقالات عمیق درباره تکنولوژی، فلسفه و آینده</p>
+</header>
+
+<main class="container-wide">
+  <div class="articles-grid">
+    <article class="article-card">
+      <span class="article-card-date">1404/08/20</span>
+      <h3>چگونه با کد، واقعیت را تغییر دهیم</h3>
+      <p>نگاهی فلسفی به قدرت برنامه‌نویسی در دنیای مدرن و اینکه چطور یک خط کد می‌تواند سرنوشت میلیون‌ها انسان را تغییر دهد...</p>
+      <a href="article-1.html" class="read-more">مطالعه کامل ←</a>
+    </article>
+    <article class="article-card">
+      <span class="article-card-date">1404/12/02</span>
+      <h3>هوش مصنوعی و مرزهای اخلاق</h3>
+      <p>وقتی ماشین‌ها تصمیم می‌گیرند، چه کسی مسئول است؟ بررسی عمیق چالش‌های اخلاقی عصر هوش مصنوعی...</p>
+      <a href="article-2.html" class="read-more">مطالعه کامل ←</a>
+    </article>
+    <article class="article-card">
+      <span class="article-card-date">1405/07/20</span>
+      <h3>معماری سیستم‌های فناناپذیر</h3>
+      <p>چگونه سیستم‌هایی بسازیم که هرگز نمی‌میرند؟ از معماری میکروسرویس تا طراحی برای شکست...</p>
+      <a href="article-3.html" class="read-more">مطالعه کامل ←</a>
+    </article>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-symbol">𖤍</div>
+  <p class="footer-copy">© 1405 AHURIVAN — God of Tech</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('.theme-icon');
+if (localStorage.getItem('ahurivan-theme') === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeIcon.textContent = '☀';
+}
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    themeIcon.textContent = '☾';
+    localStorage.setItem('ahurivan-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.textContent = '☀';
+    localStorage.setItem('ahurivan-theme', 'dark');
+  }
+});
+</script>
+</body>
+</html>

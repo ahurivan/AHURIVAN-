@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wallpapersmn.github.io/AHURIVAN/sitemap.xml
